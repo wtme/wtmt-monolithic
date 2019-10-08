@@ -1,0 +1,37 @@
+
+entity SysModule {
+	name String // Selling
+    creation Instant // "2017-09-11 13:49:05.415211"
+    modified Instant // "2017-09-11 13:49:05.415211"
+    modifiedBy String // Administrator
+    owner String // Administrator
+    pageName String // point-of-sale
+    title String // Point of Sale
+    level Integer
+}
+
+entity RolePermission {
+	name String
+	creation Instant // "2013-06-11 14:26:44"
+    description String // "Buyer of Goods and Services."
+}
+
+entity SysModuleRole {}
+entity SysModulePermission {}
+entity Permission {
+	name String
+    imageUrl String
+    level Integer
+    eventName String
+    hotKey String
+}
+relationship ManyToOne {
+	//SysModuleRole to Authority
+	SysModuleRole to RolePermission
+
+	SysModulePermission{docPermission(name)} to Permission
+    SysModulePermission{docFunction(name)} to RolePermission{docFunctionHasPermission(name)}
+}
+relationship OneToMany {
+	RolePermission{docModule(name)} to SysModule
+}
