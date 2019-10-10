@@ -1,13 +1,13 @@
 
-
 /* Entity for Organization Gateway */
 entity Location {
+	code String required maxlength(50)
+    name String required maxlength(100)
 	streetAddress String
 	postalCode String
 	city String
 	stateProvince String
 }
-
 entity Department {
     code String required maxlength(50)
 	name String required maxlength(100)
@@ -18,16 +18,17 @@ entity Department {
     endDate Instant
 }
 entity DepartmentApprove {
-	
+
 }
 entity ExpenseApprovers {
 
 }
 entity Employee {
     code String required maxlength(50)
-	fullname String
+	fullname String required maxlength(50)
+	login String required maxlength(50)
 	email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
-    personalEmail String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    personalEmail String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
 	phoneNumber String
     mobile String
 	dateOfJoining Instant
@@ -36,27 +37,26 @@ entity Employee {
     employeeNumber String
     dateOfBirth Instant
     note String
+    userId String
 }
 enum EmployeeStatus {
 	ACTIVE, LEFT
 }
-entity EmployeeType {
+entity EmployeeHasRole {
 	name String
 }
-
 entity DepartmentRole {
     code String required maxlength(50)
 	name String required maxlength(100)
     description String
 }
-
 relationship ManyToOne {
-	ExpenseApprovers{user(name)} to Employee
+	ExpenseApprovers{employee(fullname)} to Employee
     ExpenseApprovers{department(name)} to Department
     ExpenseApprovers{departmentRole(name)} to DepartmentRole
 }
 relationship ManyToOne {
-	DepartmentApprove{user(name)} to Employee
+	DepartmentApprove{employee(fullname)} to Employee
     DepartmentApprove{department(name)} to Department
     DepartmentApprove{departmentRole(name)} to DepartmentRole
 }
@@ -64,11 +64,8 @@ relationship ManyToOne {
 enum Gender {
 	MALE, FEMALE, OTHER
 }
-relationship ManyToMany {
-	Employee to EmployeeType
-}
-relationship OneToOne {
-	Employee{user(login) required} to User
+relationship ManyToOne {
+	EmployeeHasRole to Employee
 }
 
 relationship ManyToOne {
@@ -81,59 +78,64 @@ relationship OneToOne {
 
 // defining multiple OneToMany relationships with comments
 relationship OneToMany {
-	/**
-	* A relationship
-	*/
-	Department{employee} to
-	/**
-	* Another side of the same relationship
-	*/
-	Employee
+	Department to Employee{departmen(name)}
 }
 
 relationship ManyToOne {
 	Employee{manager} to Employee
 }
 
-
 /* Entities for Overtime microservices */
+entity OvertimeApproval {
+	approverName String
+    approverEmail String
+}
 entity Overtime {
-	code String required maxlength(50)
-    details String
+	code String required maxlength(50) // OT-YYYY-001
+    name String
     status OvertimeStatus required
-    startDate Instant
-    endDate Instant
+    details String
+    fromDate Instant
+    toDate Instant
     createdDate Instant
     overtimeInHours BigDecimal
     totalBillableHours BigDecimal
     totalCostingAmount BigDecimal
     note String
+    location String
     employeeName String
+    employeeEmail String
     departmentName String
     departmentCode String
-    location String
+}
+relationship OneToMany {
+	Overtime to OvertimeApproval{overtime}
 }
 entity OvertimeComment {
 	comment String
     createdDate Instant
+    employeeName String
+    employeeEmail String
 }
 entity OvertimeHistory {
 	date Instant
     status OvertimeStatus
+    changeType String
+    who String
 }
 enum OvertimeStatus {
-	DRAFT, SUBMITTED, BILLED, PAYSLIP, COMPLETED, CANCELLED
+	OPEN,
+    APPROVED,
+    COMPLETED,
+    REJECTED,
+    CANCELLED
 }
 relationship OneToMany {
 	Overtime to OvertimeHistory
 	Overtime to OvertimeComment
 }
 
-
-// Set pagination options
-
-// Use Data Transfert Objects (DTO)
-// dto * with mapstruct
-
-// Set service options to all except few
+dto * with mapstruct
 service all with serviceImpl
+paginate all with pagination
+

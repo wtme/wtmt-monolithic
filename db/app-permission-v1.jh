@@ -1,37 +1,142 @@
 
-entity SysModule {
-	name String // Selling
-    creation Instant // "2017-09-11 13:49:05.415211"
-    modified Instant // "2017-09-11 13:49:05.415211"
-    modifiedBy String // Administrator
-    owner String // Administrator
-    pageName String // point-of-sale
-    title String // Point of Sale
-    level Integer
+/* Entity for Organization Gateway */
+entity Location {
+	code String required maxlength(50)
+    name String required maxlength(100)
+	streetAddress String
+	postalCode String
+	city String
+	stateProvince String
 }
-
-entity RolePermission {
-	name String
-	creation Instant // "2013-06-11 14:26:44"
-    description String // "Buyer of Goods and Services."
+entity Department {
+    code String required maxlength(50)
+	name String required maxlength(100)
+    description String
+    disabled Boolean
+    notes String
+    startDate Instant
+    endDate Instant
 }
+entity DepartmentApprove {
 
-entity SysModuleRole {}
-entity SysModulePermission {}
-entity Permission {
+}
+entity ExpenseApprovers {
+
+}
+entity EmployeeDepartment {
+}
+entity Employee {
+    code String required maxlength(50)
+	fullname String required maxlength(50)
+	login String required maxlength(50)
+	email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    personalEmail String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+	phoneNumber String
+    mobile String
+	dateOfJoining Instant
+    gender Gender
+    status EmployeeStatus
+    employeeNumber String
+    dateOfBirth Instant
+    note String
+    userId String
+}
+enum EmployeeStatus {
+	ACTIVE, LEFT
+}
+entity EmployeeHasRole {
 	name String
-    imageUrl String
-    level Integer
-    eventName String
-    hotKey String
+}
+entity DepartmentRole {
+    code String required maxlength(50)
+	name String required maxlength(100)
+    description String
 }
 relationship ManyToOne {
-	//SysModuleRole to Authority
-	SysModuleRole to RolePermission
+	EmployeeDepartment{employee(fullname)} to Employee
+    EmployeeDepartment{department(name)} to Department
+}
+relationship ManyToOne {
+	ExpenseApprovers{employee(fullname)} to Employee
+    ExpenseApprovers{department(name)} to Department
+    ExpenseApprovers{departmentRole(name)} to DepartmentRole
+}
+relationship ManyToOne {
+	DepartmentApprove{employee(fullname)} to Employee
+    DepartmentApprove{department(name)} to Department
+    DepartmentApprove{departmentRole(name)} to DepartmentRole
+}
 
-	SysModulePermission{docPermission(name)} to Permission
-    SysModulePermission{docFunction(name)} to RolePermission{docFunctionHasPermission(name)}
+enum Gender {
+	MALE, FEMALE, OTHER
+}
+relationship ManyToOne {
+	EmployeeHasRole to Employee
+}
+
+relationship ManyToOne {
+    Department{parent} to Department
+}
+
+relationship OneToOne {
+	Department{location} to Location
+}
+
+relationship ManyToOne {
+	Employee{manager} to Employee
+}
+
+/* Entities for Overtime microservices */
+entity OvertimeApproval {
+	approverName String
+    approverEmail String
+}
+entity Overtime {
+	code String required maxlength(50) // OT-YYYY-001
+    name String
+    status OvertimeStatus required
+    details String
+    fromDate Instant
+    toDate Instant
+    createdDate Instant
+    overtimeInHours BigDecimal
+    totalBillableHours BigDecimal
+    totalCostingAmount BigDecimal
+    note String
+    location String
+    employeeName String
+    employeeEmail String
+    departmentName String
+    departmentCode String
 }
 relationship OneToMany {
-	RolePermission{docModule(name)} to SysModule
+	Overtime to OvertimeApproval{overtime}
 }
+entity OvertimeComment {
+	comment String
+    createdDate Instant
+    employeeName String
+    employeeEmail String
+}
+entity OvertimeHistory {
+	date Instant
+    status OvertimeStatus
+    changeType String
+    who String
+}
+enum OvertimeStatus {
+	OPEN,
+    APPROVED,
+    COMPLETED,
+    REJECTED,
+    CANCELLED
+}
+relationship OneToMany {
+	Overtime to OvertimeHistory
+	Overtime to OvertimeComment
+}
+
+dto * with mapstruct
+service all with serviceImpl
+paginate all with pagination
+
