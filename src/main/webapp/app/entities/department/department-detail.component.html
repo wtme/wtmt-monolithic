@@ -25,24 +25,16 @@
                 <dd>
                     <span>{{department.notes}}</span>
                 </dd>
-                <dt><span jhiTranslate="wmteApp.department.startDate">Start Date</span></dt>
-                <dd>
-                    <span>{{department.startDate}}</span>
-                </dd>
-                <dt><span jhiTranslate="wmteApp.department.endDate">End Date</span></dt>
-                <dd>
-                    <span>{{department.endDate}}</span>
-                </dd>
                 <dt><span jhiTranslate="wmteApp.department.location">Location</span></dt>
                 <dd>
                     <div *ngIf="department.locationId">
-                        <a [routerLink]="['/location', department.locationId, 'view']">{{department.locationId}}</a>
+                        <a [routerLink]="['/location', department.locationId, 'view']">{{department.locationName}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="wmteApp.department.parent">Parent</span></dt>
                 <dd>
                     <div *ngIf="department.parentId">
-                        <a [routerLink]="['/department', department.parentId, 'view']">{{department.parentId}}</a>
+                        <a [routerLink]="['/department', department.parentId, 'view']">{{department.parentName}}</a>
                     </div>
                 </dd>
             </dl>

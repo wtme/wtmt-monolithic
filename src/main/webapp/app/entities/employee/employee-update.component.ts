@@ -11,8 +11,6 @@ import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService } from 'ng-jhipster';
 import { IEmployee, Employee } from 'app/shared/model/employee.model';
 import { EmployeeService } from './employee.service';
-import { IDepartment } from 'app/shared/model/department.model';
-import { DepartmentService } from 'app/entities/department/department.service';
 
 @Component({
   selector: 'jhi-employee-update',
@@ -22,8 +20,6 @@ export class EmployeeUpdateComponent implements OnInit {
   isSaving: boolean;
 
   employees: IEmployee[];
-
-  departments: IDepartment[];
 
   editForm = this.fb.group({
     id: [],
@@ -41,14 +37,12 @@ export class EmployeeUpdateComponent implements OnInit {
     dateOfBirth: [],
     note: [],
     userId: [],
-    managerId: [],
-    departmenId: []
+    managerId: []
   });
 
   constructor(
     protected jhiAlertService: JhiAlertService,
     protected employeeService: EmployeeService,
-    protected departmentService: DepartmentService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -65,13 +59,6 @@ export class EmployeeUpdateComponent implements OnInit {
         map((response: HttpResponse<IEmployee[]>) => response.body)
       )
       .subscribe((res: IEmployee[]) => (this.employees = res), (res: HttpErrorResponse) => this.onError(res.message));
-    this.departmentService
-      .query()
-      .pipe(
-        filter((mayBeOk: HttpResponse<IDepartment[]>) => mayBeOk.ok),
-        map((response: HttpResponse<IDepartment[]>) => response.body)
-      )
-      .subscribe((res: IDepartment[]) => (this.departments = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(employee: IEmployee) {
@@ -91,8 +78,7 @@ export class EmployeeUpdateComponent implements OnInit {
       dateOfBirth: employee.dateOfBirth != null ? employee.dateOfBirth.format(DATE_TIME_FORMAT) : null,
       note: employee.note,
       userId: employee.userId,
-      managerId: employee.managerId,
-      departmenId: employee.departmenId
+      managerId: employee.managerId
     });
   }
 
@@ -132,8 +118,7 @@ export class EmployeeUpdateComponent implements OnInit {
         this.editForm.get(['dateOfBirth']).value != null ? moment(this.editForm.get(['dateOfBirth']).value, DATE_TIME_FORMAT) : undefined,
       note: this.editForm.get(['note']).value,
       userId: this.editForm.get(['userId']).value,
-      managerId: this.editForm.get(['managerId']).value,
-      departmenId: this.editForm.get(['departmenId']).value
+      managerId: this.editForm.get(['managerId']).value
     };
   }
 
@@ -154,10 +139,6 @@ export class EmployeeUpdateComponent implements OnInit {
   }
 
   trackEmployeeById(index: number, item: IEmployee) {
-    return item.id;
-  }
-
-  trackDepartmentById(index: number, item: IDepartment) {
     return item.id;
   }
 }

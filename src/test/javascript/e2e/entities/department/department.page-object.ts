@@ -31,8 +31,6 @@ export class DepartmentUpdatePage {
   descriptionInput = element(by.id('field_description'));
   disabledInput = element(by.id('field_disabled'));
   notesInput = element(by.id('field_notes'));
-  startDateInput = element(by.id('field_startDate'));
-  endDateInput = element(by.id('field_endDate'));
   locationSelect = element(by.id('field_location'));
   parentSelect = element(by.id('field_parent'));
 
@@ -73,22 +71,6 @@ export class DepartmentUpdatePage {
 
   async getNotesInput() {
     return await this.notesInput.getAttribute('value');
-  }
-
-  async setStartDateInput(startDate) {
-    await this.startDateInput.sendKeys(startDate);
-  }
-
-  async getStartDateInput() {
-    return await this.startDateInput.getAttribute('value');
-  }
-
-  async setEndDateInput(endDate) {
-    await this.endDateInput.sendKeys(endDate);
-  }
-
-  async getEndDateInput() {
-    return await this.endDateInput.getAttribute('value');
   }
 
   async locationSelectLastOption(timeout?: number) {

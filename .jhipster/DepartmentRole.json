@@ -25,7 +25,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20191010115727",
+    "changelogDate": "20191010132727",
     "entityTableName": "department_role",
     "dto": "mapstruct",
     "pagination": "pagination",

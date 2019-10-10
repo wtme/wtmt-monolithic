@@ -28,7 +28,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20191010115731",
+    "changelogDate": "20191010132731",
     "entityTableName": "overtime_history",
     "dto": "mapstruct",
     "pagination": "pagination",

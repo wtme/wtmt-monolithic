@@ -16,6 +16,8 @@ public class OvertimeApprovalDTO implements Serializable {
 
     private Long overtimeId;
 
+    private String overtimeName;
+
     public Long getId() {
         return id;
     }
@@ -48,6 +50,14 @@ public class OvertimeApprovalDTO implements Serializable {
         this.overtimeId = overtimeId;
     }
 
+    public String getOvertimeName() {
+        return overtimeName;
+    }
+
+    public void setOvertimeName(String overtimeName) {
+        this.overtimeName = overtimeName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -76,6 +86,7 @@ public class OvertimeApprovalDTO implements Serializable {
             ", approverName='" + getApproverName() + "'" +
             ", approverEmail='" + getApproverEmail() + "'" +
             ", overtime=" + getOvertimeId() +
+            ", overtime='" + getOvertimeName() + "'" +
             "}";
     }
 }

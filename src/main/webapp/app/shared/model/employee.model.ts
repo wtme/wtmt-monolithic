@@ -19,9 +19,8 @@ export interface IEmployee {
   dateOfBirth?: Moment;
   note?: string;
   userId?: string;
+  managerFullname?: string;
   managerId?: number;
-  departmenName?: string;
-  departmenId?: number;
   employeeHasRoles?: IEmployeeHasRole[];
 }
 
@@ -42,9 +41,8 @@ export class Employee implements IEmployee {
     public dateOfBirth?: Moment,
     public note?: string,
     public userId?: string,
+    public managerFullname?: string,
     public managerId?: number,
-    public departmenName?: string,
-    public departmenId?: number,
     public employeeHasRoles?: IEmployeeHasRole[]
   ) {}
 }

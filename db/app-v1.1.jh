@@ -1,0 +1,140 @@
+
+/* Entity for Organization Gateway */
+entity Location {
+	code String required maxlength(50)
+    name String required maxlength(100)
+	streetAddress String
+	postalCode String
+	city String
+	stateProvince String
+}
+entity Department {
+    code String required maxlength(50)
+	name String required maxlength(100)
+    description String
+    disabled Boolean
+    notes String
+}
+entity DepartmentApprove {
+
+}
+entity ExpenseApprovers {
+
+}
+entity EmployeeDepartment {
+}
+entity Employee {
+    code String required maxlength(50)
+	fullname String required maxlength(50)
+	login String required maxlength(50)
+	email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    personalEmail String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+	phoneNumber String
+    mobile String
+	dateOfJoining Instant
+    gender Gender
+    status EmployeeStatus
+    employeeNumber String
+    dateOfBirth Instant
+    note String
+    userId String
+}
+enum EmployeeStatus {
+	ACTIVE, LEFT
+}
+entity EmployeeHasRole {
+	name String
+}
+entity DepartmentRole {
+    code String required maxlength(50)
+	name String required maxlength(100)
+    description String
+}
+relationship ManyToOne {
+	EmployeeDepartment{employee(fullname)} to Employee
+    EmployeeDepartment{department(name)} to Department
+}
+relationship ManyToOne {
+	ExpenseApprovers{employee(fullname)} to Employee
+    ExpenseApprovers{department(name)} to Department
+    ExpenseApprovers{departmentRole(name)} to DepartmentRole
+}
+relationship ManyToOne {
+	DepartmentApprove{employee(fullname)} to Employee
+    DepartmentApprove{department(name)} to Department
+    DepartmentApprove{departmentRole(name)} to DepartmentRole
+}
+
+enum Gender {
+	MALE, FEMALE, OTHER
+}
+relationship ManyToOne {
+	EmployeeHasRole to Employee
+}
+
+relationship ManyToOne {
+    Department{parent(name)} to Department
+}
+
+relationship OneToOne {
+	Department{location(name)} to Location
+}
+
+relationship ManyToOne {
+	Employee{manager(fullname)} to Employee
+}
+
+/* Entities for Overtime microservices */
+entity OvertimeApproval {
+	approverName String
+    approverEmail String
+}
+entity Overtime {
+	code String required maxlength(50) // OT-YYYY-001
+    name String
+    status OvertimeStatus required
+    details String
+    fromDate Instant
+    toDate Instant
+    createdDate Instant
+    overtimeInHours BigDecimal
+    totalBillableHours BigDecimal
+    totalCostingAmount BigDecimal
+    note String
+    location String
+    employeeName String
+    employeeEmail String
+    departmentName String
+    departmentCode String
+}
+relationship OneToMany {
+	Overtime to OvertimeApproval{overtime(name)}
+}
+entity OvertimeComment {
+	comment String
+    createdDate Instant
+    employeeName String
+    employeeEmail String
+}
+entity OvertimeHistory {
+	date Instant
+    status OvertimeStatus
+    changeType String
+    who String
+}
+enum OvertimeStatus {
+	OPEN,
+    APPROVED,
+    COMPLETED,
+    REJECTED,
+    CANCELLED
+}
+relationship OneToMany {
+	Overtime to OvertimeHistory
+	Overtime to OvertimeComment
+}
+
+dto * with mapstruct
+service all with serviceImpl
+paginate all with pagination
+

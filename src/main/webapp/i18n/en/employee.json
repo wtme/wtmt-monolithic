@@ -31,7 +31,6 @@
       "note": "Note",
       "userId": "User Id",
       "manager": "Manager",
-      "departmen": "Departmen",
       "employeeHasRole": "Employee Has Role"
     }
   }

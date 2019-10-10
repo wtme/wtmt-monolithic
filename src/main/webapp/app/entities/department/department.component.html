@@ -23,10 +23,8 @@
             <th jhiSortBy="description"><span jhiTranslate="wmteApp.department.description">Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="disabled"><span jhiTranslate="wmteApp.department.disabled">Disabled</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="notes"><span jhiTranslate="wmteApp.department.notes">Notes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="startDate"><span jhiTranslate="wmteApp.department.startDate">Start Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="endDate"><span jhiTranslate="wmteApp.department.endDate">End Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="locationId"><span jhiTranslate="wmteApp.department.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="parentId"><span jhiTranslate="wmteApp.department.parent">Parent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="locationName"><span jhiTranslate="wmteApp.department.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="parentName"><span jhiTranslate="wmteApp.department.parent">Parent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -38,16 +36,14 @@
                 <td>{{department.description}}</td>
                 <td>{{department.disabled}}</td>
                 <td>{{department.notes}}</td>
-                <td>{{department.startDate | date:'medium'}}</td>
-                <td>{{department.endDate | date:'medium'}}</td>
                 <td>
                     <div *ngIf="department.locationId">
-                        <a [routerLink]="['/location', department.locationId , 'view' ]" >{{department.locationId}}</a>
+                        <a [routerLink]="['/location', department.locationId , 'view' ]" >{{department.locationName}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="department.parentId">
-                        <a [routerLink]="['/department', department.parentId , 'view' ]" >{{department.parentId}}</a>
+                        <a [routerLink]="['/department', department.parentId , 'view' ]" >{{department.parentName}}</a>
                     </div>
                 </td>
                 <td class="text-right">

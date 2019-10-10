@@ -27,7 +27,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20191010115730",
+    "changelogDate": "20191010132730",
     "entityTableName": "overtime_comment",
     "dto": "mapstruct",
     "pagination": "pagination",

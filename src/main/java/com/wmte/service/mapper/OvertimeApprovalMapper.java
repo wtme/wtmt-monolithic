@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface OvertimeApprovalMapper extends EntityMapper<OvertimeApprovalDTO, OvertimeApproval> {
 
     @Mapping(source = "overtime.id", target = "overtimeId")
+    @Mapping(source = "overtime.name", target = "overtimeName")
     OvertimeApprovalDTO toDto(OvertimeApproval overtimeApproval);
 
     @Mapping(source = "overtimeId", target = "overtime")

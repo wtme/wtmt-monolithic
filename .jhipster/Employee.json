@@ -90,14 +90,7 @@
             "otherEntityName": "employee",
             "otherEntityRelationshipName": "employee",
             "relationshipName": "manager",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipType": "many-to-one",
-            "otherEntityName": "department",
-            "otherEntityRelationshipName": "employee",
-            "relationshipName": "departmen",
-            "otherEntityField": "name"
+            "otherEntityField": "fullname"
         },
         {
             "relationshipType": "one-to-many",
@@ -106,7 +99,7 @@
             "relationshipName": "employeeHasRole"
         }
     ],
-    "changelogDate": "20191010115725",
+    "changelogDate": "20191010132725",
     "entityTableName": "employee",
     "dto": "mapstruct",
     "pagination": "pagination",

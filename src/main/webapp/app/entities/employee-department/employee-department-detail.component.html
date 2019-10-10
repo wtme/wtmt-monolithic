@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employeeDepartment">
+            <h2><span jhiTranslate="wmteApp.employeeDepartment.detail.title">Employee Department</span> {{employeeDepartment.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wmteApp.employeeDepartment.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="employeeDepartment.employeeId">
+                        <a [routerLink]="['/employee', employeeDepartment.employeeId, 'view']">{{employeeDepartment.employeeFullname}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employeeDepartment.department">Department</span></dt>
+                <dd>
+                    <div *ngIf="employeeDepartment.departmentId">
+                        <a [routerLink]="['/department', employeeDepartment.departmentId, 'view']">{{employeeDepartment.departmentName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee-department', employeeDepartment.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

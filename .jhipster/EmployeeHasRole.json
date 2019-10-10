@@ -15,7 +15,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20191010115726",
+    "changelogDate": "20191010132726",
     "entityTableName": "employee_has_role",
     "dto": "mapstruct",
     "pagination": "pagination",

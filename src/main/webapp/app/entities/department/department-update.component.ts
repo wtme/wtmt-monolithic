@@ -6,8 +6,6 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import * as moment from 'moment';
-import { DATE_TIME_FORMAT } from 'app/shared/constants/input.constants';
 import { JhiAlertService } from 'ng-jhipster';
 import { IDepartment, Department } from 'app/shared/model/department.model';
 import { DepartmentService } from './department.service';
@@ -32,8 +30,6 @@ export class DepartmentUpdateComponent implements OnInit {
     description: [],
     disabled: [],
     notes: [],
-    startDate: [],
-    endDate: [],
     locationId: [],
     parentId: []
   });
@@ -93,8 +89,6 @@ export class DepartmentUpdateComponent implements OnInit {
       description: department.description,
       disabled: department.disabled,
       notes: department.notes,
-      startDate: department.startDate != null ? department.startDate.format(DATE_TIME_FORMAT) : null,
-      endDate: department.endDate != null ? department.endDate.format(DATE_TIME_FORMAT) : null,
       locationId: department.locationId,
       parentId: department.parentId
     });
@@ -123,9 +117,6 @@ export class DepartmentUpdateComponent implements OnInit {
       description: this.editForm.get(['description']).value,
       disabled: this.editForm.get(['disabled']).value,
       notes: this.editForm.get(['notes']).value,
-      startDate:
-        this.editForm.get(['startDate']).value != null ? moment(this.editForm.get(['startDate']).value, DATE_TIME_FORMAT) : undefined,
-      endDate: this.editForm.get(['endDate']).value != null ? moment(this.editForm.get(['endDate']).value, DATE_TIME_FORMAT) : undefined,
       locationId: this.editForm.get(['locationId']).value,
       parentId: this.editForm.get(['parentId']).value
     };

@@ -87,10 +87,6 @@ public class Employee implements Serializable {
     @JsonIgnoreProperties("employees")
     private Employee manager;
 
-    @ManyToOne
-    @JsonIgnoreProperties("employees")
-    private Department departmen;
-
     @OneToMany(mappedBy = "employee")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<EmployeeHasRole> employeeHasRoles = new HashSet<>();
@@ -297,19 +293,6 @@ public class Employee implements Serializable {
 
     public void setManager(Employee employee) {
         this.manager = employee;
-    }
-
-    public Department getDepartmen() {
-        return departmen;
-    }
-
-    public Employee departmen(Department department) {
-        this.departmen = department;
-        return this;
-    }
-
-    public void setDepartmen(Department department) {
-        this.departmen = department;
     }
 
     public Set<EmployeeHasRole> getEmployeeHasRoles() {

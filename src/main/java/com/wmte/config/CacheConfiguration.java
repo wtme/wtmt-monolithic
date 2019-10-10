@@ -58,6 +58,7 @@ public class CacheConfiguration {
             createCache(cm, com.wmte.domain.Overtime.class.getName() + ".overtimeComments");
             createCache(cm, com.wmte.domain.OvertimeComment.class.getName());
             createCache(cm, com.wmte.domain.OvertimeHistory.class.getName());
+            createCache(cm, com.wmte.domain.EmployeeDepartment.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

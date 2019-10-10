@@ -24,7 +24,7 @@
             "otherEntityField": "name"
         }
     ],
-    "changelogDate": "20191010115723",
+    "changelogDate": "20191010132722",
     "entityTableName": "department_approve",
     "dto": "mapstruct",
     "pagination": "pagination",

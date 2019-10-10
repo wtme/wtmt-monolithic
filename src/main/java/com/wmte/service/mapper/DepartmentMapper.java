@@ -12,12 +12,12 @@ import org.mapstruct.*;
 public interface DepartmentMapper extends EntityMapper<DepartmentDTO, Department> {
 
     @Mapping(source = "location.id", target = "locationId")
+    @Mapping(source = "location.name", target = "locationName")
     @Mapping(source = "parent.id", target = "parentId")
+    @Mapping(source = "parent.name", target = "parentName")
     DepartmentDTO toDto(Department department);
 
     @Mapping(source = "locationId", target = "location")
-    @Mapping(target = "employees", ignore = true)
-    @Mapping(target = "removeEmployee", ignore = true)
     @Mapping(source = "parentId", target = "parent")
     Department toEntity(DepartmentDTO departmentDTO);
 

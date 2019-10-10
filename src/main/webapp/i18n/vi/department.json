@@ -21,10 +21,7 @@
       "description": "Description",
       "disabled": "Disabled",
       "notes": "Notes",
-      "startDate": "Start Date",
-      "endDate": "End Date",
       "location": "Location",
-      "employee": "Employee",
       "parent": "Parent"
     }
   }

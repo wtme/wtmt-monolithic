@@ -95,7 +95,7 @@
             "relationshipName": "overtimeComment"
         }
     ],
-    "changelogDate": "20191010115729",
+    "changelogDate": "20191010132729",
     "entityTableName": "overtime",
     "dto": "mapstruct",
     "pagination": "pagination",

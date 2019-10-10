@@ -22,8 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Validator;
 
 import javax.persistence.EntityManager;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static com.wmte.web.rest.TestUtil.createFormattingConversionService;
@@ -52,14 +50,6 @@ public class DepartmentResourceIT {
 
     private static final String DEFAULT_NOTES = "AAAAAAAAAA";
     private static final String UPDATED_NOTES = "BBBBBBBBBB";
-
-    private static final Instant DEFAULT_START_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_START_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_START_DATE = Instant.ofEpochMilli(-1L);
-
-    private static final Instant DEFAULT_END_DATE = Instant.ofEpochMilli(0L);
-    private static final Instant UPDATED_END_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_END_DATE = Instant.ofEpochMilli(-1L);
 
     @Autowired
     private DepartmentRepository departmentRepository;
@@ -113,9 +103,7 @@ public class DepartmentResourceIT {
             .name(DEFAULT_NAME)
             .description(DEFAULT_DESCRIPTION)
             .disabled(DEFAULT_DISABLED)
-            .notes(DEFAULT_NOTES)
-            .startDate(DEFAULT_START_DATE)
-            .endDate(DEFAULT_END_DATE);
+            .notes(DEFAULT_NOTES);
         return department;
     }
     /**
@@ -130,9 +118,7 @@ public class DepartmentResourceIT {
             .name(UPDATED_NAME)
             .description(UPDATED_DESCRIPTION)
             .disabled(UPDATED_DISABLED)
-            .notes(UPDATED_NOTES)
-            .startDate(UPDATED_START_DATE)
-            .endDate(UPDATED_END_DATE);
+            .notes(UPDATED_NOTES);
         return department;
     }
 
@@ -162,8 +148,6 @@ public class DepartmentResourceIT {
         assertThat(testDepartment.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testDepartment.isDisabled()).isEqualTo(DEFAULT_DISABLED);
         assertThat(testDepartment.getNotes()).isEqualTo(DEFAULT_NOTES);
-        assertThat(testDepartment.getStartDate()).isEqualTo(DEFAULT_START_DATE);
-        assertThat(testDepartment.getEndDate()).isEqualTo(DEFAULT_END_DATE);
     }
 
     @Test
@@ -240,9 +224,7 @@ public class DepartmentResourceIT {
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].disabled").value(hasItem(DEFAULT_DISABLED.booleanValue())))
-            .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())))
-            .andExpect(jsonPath("$.[*].startDate").value(hasItem(DEFAULT_START_DATE.toString())))
-            .andExpect(jsonPath("$.[*].endDate").value(hasItem(DEFAULT_END_DATE.toString())));
+            .andExpect(jsonPath("$.[*].notes").value(hasItem(DEFAULT_NOTES.toString())));
     }
     
     @Test
@@ -260,9 +242,7 @@ public class DepartmentResourceIT {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.disabled").value(DEFAULT_DISABLED.booleanValue()))
-            .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()))
-            .andExpect(jsonPath("$.startDate").value(DEFAULT_START_DATE.toString()))
-            .andExpect(jsonPath("$.endDate").value(DEFAULT_END_DATE.toString()));
+            .andExpect(jsonPath("$.notes").value(DEFAULT_NOTES.toString()));
     }
 
     @Test
@@ -290,9 +270,7 @@ public class DepartmentResourceIT {
             .name(UPDATED_NAME)
             .description(UPDATED_DESCRIPTION)
             .disabled(UPDATED_DISABLED)
-            .notes(UPDATED_NOTES)
-            .startDate(UPDATED_START_DATE)
-            .endDate(UPDATED_END_DATE);
+            .notes(UPDATED_NOTES);
         DepartmentDTO departmentDTO = departmentMapper.toDto(updatedDepartment);
 
         restDepartmentMockMvc.perform(put("/api/departments")
@@ -309,8 +287,6 @@ public class DepartmentResourceIT {
         assertThat(testDepartment.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testDepartment.isDisabled()).isEqualTo(UPDATED_DISABLED);
         assertThat(testDepartment.getNotes()).isEqualTo(UPDATED_NOTES);
-        assertThat(testDepartment.getStartDate()).isEqualTo(UPDATED_START_DATE);
-        assertThat(testDepartment.getEndDate()).isEqualTo(UPDATED_END_DATE);
     }
 
     @Test

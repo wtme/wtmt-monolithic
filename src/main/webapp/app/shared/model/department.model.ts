@@ -1,6 +1,3 @@
-import { Moment } from 'moment';
-import { IEmployee } from 'app/shared/model/employee.model';
-
 export interface IDepartment {
   id?: number;
   code?: string;
@@ -8,10 +5,9 @@ export interface IDepartment {
   description?: string;
   disabled?: boolean;
   notes?: string;
-  startDate?: Moment;
-  endDate?: Moment;
+  locationName?: string;
   locationId?: number;
-  employees?: IEmployee[];
+  parentName?: string;
   parentId?: number;
 }
 
@@ -23,10 +19,9 @@ export class Department implements IDepartment {
     public description?: string,
     public disabled?: boolean,
     public notes?: string,
-    public startDate?: Moment,
-    public endDate?: Moment,
+    public locationName?: string,
     public locationId?: number,
-    public employees?: IEmployee[],
+    public parentName?: string,
     public parentId?: number
   ) {
     this.disabled = this.disabled || false;

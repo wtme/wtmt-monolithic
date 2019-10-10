@@ -64,13 +64,7 @@
                 <dt><span jhiTranslate="wmteApp.employee.manager">Manager</span></dt>
                 <dd>
                     <div *ngIf="employee.managerId">
-                        <a [routerLink]="['/employee', employee.managerId, 'view']">{{employee.managerId}}</a>
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="wmteApp.employee.departmen">Departmen</span></dt>
-                <dd>
-                    <div *ngIf="employee.departmenId">
-                        <a [routerLink]="['/department', employee.departmenId, 'view']">{{employee.departmenName}}</a>
+                        <a [routerLink]="['/employee', employee.managerId, 'view']">{{employee.managerFullname}}</a>
                     </div>
                 </dd>
             </dl>

@@ -1,5 +1,4 @@
 package com.wmte.service.dto;
-import java.time.Instant;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -25,14 +24,14 @@ public class DepartmentDTO implements Serializable {
 
     private String notes;
 
-    private Instant startDate;
-
-    private Instant endDate;
-
 
     private Long locationId;
 
+    private String locationName;
+
     private Long parentId;
+
+    private String parentName;
 
     public Long getId() {
         return id;
@@ -82,22 +81,6 @@ public class DepartmentDTO implements Serializable {
         this.notes = notes;
     }
 
-    public Instant getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Instant startDate) {
-        this.startDate = startDate;
-    }
-
-    public Instant getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Instant endDate) {
-        this.endDate = endDate;
-    }
-
     public Long getLocationId() {
         return locationId;
     }
@@ -106,12 +89,28 @@ public class DepartmentDTO implements Serializable {
         this.locationId = locationId;
     }
 
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
     public Long getParentId() {
         return parentId;
     }
 
     public void setParentId(Long departmentId) {
         this.parentId = departmentId;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String departmentName) {
+        this.parentName = departmentName;
     }
 
     @Override
@@ -144,10 +143,10 @@ public class DepartmentDTO implements Serializable {
             ", description='" + getDescription() + "'" +
             ", disabled='" + isDisabled() + "'" +
             ", notes='" + getNotes() + "'" +
-            ", startDate='" + getStartDate() + "'" +
-            ", endDate='" + getEndDate() + "'" +
             ", location=" + getLocationId() +
+            ", location='" + getLocationName() + "'" +
             ", parent=" + getParentId() +
+            ", parent='" + getParentName() + "'" +
             "}";
     }
 }

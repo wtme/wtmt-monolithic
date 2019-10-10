@@ -30,14 +30,6 @@
         {
             "fieldName": "notes",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "startDate",
-            "fieldType": "Instant"
-        },
-        {
-            "fieldName": "endDate",
-            "fieldType": "Instant"
         }
     ],
     "relationships": [
@@ -46,24 +38,18 @@
             "otherEntityName": "location",
             "otherEntityRelationshipName": "department",
             "relationshipName": "location",
-            "otherEntityField": "id",
+            "otherEntityField": "name",
             "ownerSide": true
-        },
-        {
-            "relationshipType": "one-to-many",
-            "otherEntityName": "employee",
-            "otherEntityRelationshipName": "departmen",
-            "relationshipName": "employee"
         },
         {
             "relationshipType": "many-to-one",
             "otherEntityName": "department",
             "otherEntityRelationshipName": "department",
             "relationshipName": "parent",
-            "otherEntityField": "id"
+            "otherEntityField": "name"
         }
     ],
-    "changelogDate": "20191010115722",
+    "changelogDate": "20191010132721",
     "entityTableName": "department",
     "dto": "mapstruct",
     "pagination": "pagination",

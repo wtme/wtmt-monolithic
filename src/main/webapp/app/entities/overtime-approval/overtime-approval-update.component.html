@@ -24,7 +24,7 @@
                     <label class="form-control-label" jhiTranslate="wmteApp.overtimeApproval.overtime" for="field_overtime">Overtime</label>
                     <select class="form-control" id="field_overtime" name="overtime" formControlName="overtimeId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="overtimeOption.id" *ngFor="let overtimeOption of overtimes; trackBy: trackOvertimeById">{{overtimeOption.id}}</option>
+                        <option [ngValue]="overtimeOption.id" *ngFor="let overtimeOption of overtimes; trackBy: trackOvertimeById">{{overtimeOption.name}}</option>
                     </select>
                 </div>
             </div>

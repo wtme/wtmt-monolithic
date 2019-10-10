@@ -1,0 +1,23 @@
+{
+  "wmteApp": {
+    "employeeDepartment": {
+      "home": {
+        "title": "Employee Departments",
+        "createLabel": "Thêm mới một Employee Department",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Employee Department",
+        "notFound": "No Employee Departments found"
+      },
+      "created": "Một Employee Department mới được tạo với định danh {{ param }}",
+      "updated": "Một Employee Department cập nhật với định danh {{ param }}",
+      "deleted": "Một Employee Department đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Employee Department {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Department"
+      },
+      "employee": "Employee",
+      "department": "Department"
+    }
+  }
+}

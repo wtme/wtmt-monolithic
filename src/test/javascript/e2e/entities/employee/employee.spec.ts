@@ -55,8 +55,7 @@ describe('Employee e2e test', () => {
       employeeUpdatePage.setDateOfBirthInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
       employeeUpdatePage.setNoteInput('note'),
       employeeUpdatePage.setUserIdInput('userId'),
-      employeeUpdatePage.managerSelectLastOption(),
-      employeeUpdatePage.departmenSelectLastOption()
+      employeeUpdatePage.managerSelectLastOption()
     ]);
     expect(await employeeUpdatePage.getCodeInput()).to.eq('code', 'Expected Code value to be equals to code');
     expect(await employeeUpdatePage.getFullnameInput()).to.eq('fullname', 'Expected Fullname value to be equals to fullname');

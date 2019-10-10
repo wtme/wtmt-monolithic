@@ -24,7 +24,7 @@
             "otherEntityField": "name"
         }
     ],
-    "changelogDate": "20191010115724",
+    "changelogDate": "20191010132723",
     "entityTableName": "expense_approvers",
     "dto": "mapstruct",
     "pagination": "pagination",

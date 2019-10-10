@@ -1,5 +1,5 @@
-id;code;name;description;disabled;notes;start_date;end_date
-1;ORG-DEP-0001;DG4;Home;false;deposit Canadian Dollar Lebanon;2019-10-10T01:12:34;2019-10-09T12:18:03
-2;ORG-DEP-0002;DC9;Home;false;deposit Canadian Dollar Lebanon;2019-10-10T01:12:34;2019-10-09T12:18:03
-3;ORG-DEP-0003;DC9A;Home;false;deposit Canadian Dollar Lebanon;2019-10-10T01:12:34;2019-10-09T12:18:03
-4;ORG-DEP-0004;WeTech;Home;false;deposit Canadian Dollar Lebanon;2019-10-10T01:12:34;2019-10-09T12:18:03
+id;code;name;description;disabled;notes
+1;ORG-DEP-0001;DG4;Home;false;deposit Canadian Dollar Lebanon
+2;ORG-DEP-0002;DC9;Home;false;deposit Canadian Dollar Lebanon
+3;ORG-DEP-0003;DC9A;Home;false;deposit Canadian Dollar Lebanon
+4;ORG-DEP-0004;WeTech;Home;false;deposit Canadian Dollar Lebanon

@@ -53,9 +53,7 @@ public class EmployeeDTO implements Serializable {
 
     private Long managerId;
 
-    private Long departmenId;
-
-    private String departmenName;
+    private String managerFullname;
 
     public Long getId() {
         return id;
@@ -185,20 +183,12 @@ public class EmployeeDTO implements Serializable {
         this.managerId = employeeId;
     }
 
-    public Long getDepartmenId() {
-        return departmenId;
+    public String getManagerFullname() {
+        return managerFullname;
     }
 
-    public void setDepartmenId(Long departmentId) {
-        this.departmenId = departmentId;
-    }
-
-    public String getDepartmenName() {
-        return departmenName;
-    }
-
-    public void setDepartmenName(String departmentName) {
-        this.departmenName = departmentName;
+    public void setManagerFullname(String employeeFullname) {
+        this.managerFullname = employeeFullname;
     }
 
     @Override
@@ -241,8 +231,7 @@ public class EmployeeDTO implements Serializable {
             ", note='" + getNote() + "'" +
             ", userId='" + getUserId() + "'" +
             ", manager=" + getManagerId() +
-            ", departmen=" + getDepartmenId() +
-            ", departmen='" + getDepartmenName() + "'" +
+            ", manager='" + getManagerFullname() + "'" +
             "}";
     }
 }

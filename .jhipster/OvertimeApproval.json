@@ -16,10 +16,10 @@
             "otherEntityName": "overtime",
             "otherEntityRelationshipName": "overtimeApproval",
             "relationshipName": "overtime",
-            "otherEntityField": "id"
+            "otherEntityField": "name"
         }
     ],
-    "changelogDate": "20191010115728",
+    "changelogDate": "20191010132728",
     "entityTableName": "overtime_approval",
     "dto": "mapstruct",
     "pagination": "pagination",

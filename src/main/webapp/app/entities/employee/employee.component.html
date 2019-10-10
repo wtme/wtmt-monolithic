@@ -32,8 +32,7 @@
             <th jhiSortBy="dateOfBirth"><span jhiTranslate="wmteApp.employee.dateOfBirth">Date Of Birth</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="note"><span jhiTranslate="wmteApp.employee.note">Note</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="userId"><span jhiTranslate="wmteApp.employee.userId">User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="managerId"><span jhiTranslate="wmteApp.employee.manager">Manager</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="departmenName"><span jhiTranslate="wmteApp.employee.departmen">Departmen</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="managerFullname"><span jhiTranslate="wmteApp.employee.manager">Manager</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -56,12 +55,7 @@
                 <td>{{employee.userId}}</td>
                 <td>
                     <div *ngIf="employee.managerId">
-                        <a [routerLink]="['/employee', employee.managerId , 'view' ]" >{{employee.managerId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="employee.departmenId">
-                        <a [routerLink]="['/department', employee.departmenId , 'view' ]" >{{employee.departmenName}}</a>
+                        <a [routerLink]="['/employee', employee.managerId , 'view' ]" >{{employee.managerFullname}}</a>
                     </div>
                 </td>
                 <td class="text-right">

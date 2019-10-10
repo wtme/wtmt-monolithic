@@ -1,0 +1,29 @@
+{
+    "name": "EmployeeDepartment",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "employeeDepartment",
+            "relationshipName": "employee",
+            "otherEntityField": "fullname"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "department",
+            "otherEntityRelationshipName": "employeeDepartment",
+            "relationshipName": "department",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191010132724",
+    "entityTableName": "employee_department",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

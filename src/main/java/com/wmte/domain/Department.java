@@ -7,9 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
-import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * A Department.
@@ -45,19 +42,9 @@ public class Department implements Serializable {
     @Column(name = "notes")
     private String notes;
 
-    @Column(name = "start_date")
-    private Instant startDate;
-
-    @Column(name = "end_date")
-    private Instant endDate;
-
     @OneToOne
     @JoinColumn(unique = true)
     private Location location;
-
-    @OneToMany(mappedBy = "departmen")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Employee> employees = new HashSet<>();
 
     @ManyToOne
     @JsonIgnoreProperties("departments")
@@ -137,32 +124,6 @@ public class Department implements Serializable {
         this.notes = notes;
     }
 
-    public Instant getStartDate() {
-        return startDate;
-    }
-
-    public Department startDate(Instant startDate) {
-        this.startDate = startDate;
-        return this;
-    }
-
-    public void setStartDate(Instant startDate) {
-        this.startDate = startDate;
-    }
-
-    public Instant getEndDate() {
-        return endDate;
-    }
-
-    public Department endDate(Instant endDate) {
-        this.endDate = endDate;
-        return this;
-    }
-
-    public void setEndDate(Instant endDate) {
-        this.endDate = endDate;
-    }
-
     public Location getLocation() {
         return location;
     }
@@ -174,31 +135,6 @@ public class Department implements Serializable {
 
     public void setLocation(Location location) {
         this.location = location;
-    }
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public Department employees(Set<Employee> employees) {
-        this.employees = employees;
-        return this;
-    }
-
-    public Department addEmployee(Employee employee) {
-        this.employees.add(employee);
-        employee.setDepartmen(this);
-        return this;
-    }
-
-    public Department removeEmployee(Employee employee) {
-        this.employees.remove(employee);
-        employee.setDepartmen(null);
-        return this;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
     }
 
     public Department getParent() {
@@ -240,8 +176,6 @@ public class Department implements Serializable {
             ", description='" + getDescription() + "'" +
             ", disabled='" + isDisabled() + "'" +
             ", notes='" + getNotes() + "'" +
-            ", startDate='" + getStartDate() + "'" +
-            ", endDate='" + getEndDate() + "'" +
             "}";
     }
 }

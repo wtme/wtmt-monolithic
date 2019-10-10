@@ -16,7 +16,7 @@
                 <dt><span jhiTranslate="wmteApp.overtimeApproval.overtime">Overtime</span></dt>
                 <dd>
                     <div *ngIf="overtimeApproval.overtimeId">
-                        <a [routerLink]="['/overtime', overtimeApproval.overtimeId, 'view']">{{overtimeApproval.overtimeId}}</a>
+                        <a [routerLink]="['/overtime', overtimeApproval.overtimeId, 'view']">{{overtimeApproval.overtimeName}}</a>
                     </div>
                 </dd>
             </dl>

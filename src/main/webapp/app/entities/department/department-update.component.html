@@ -54,31 +54,19 @@
                     <input type="text" class="form-control" name="notes" id="field_notes"
                            formControlName="notes"/>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="wmteApp.department.startDate" for="field_startDate">Start Date</label>
-                    <div class="d-flex">
-                        <input id="field_startDate" type="datetime-local" class="form-control" name="startDate" formControlName="startDate" placeholder="YYYY-MM-DD HH:mm"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="wmteApp.department.endDate" for="field_endDate">End Date</label>
-                    <div class="d-flex">
-                        <input id="field_endDate" type="datetime-local" class="form-control" name="endDate" formControlName="endDate" placeholder="YYYY-MM-DD HH:mm"/>
-                    </div>
-                </div>
 
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="wmteApp.department.location" for="field_location">Location</label>
                     <select class="form-control" id="field_location" name="location" formControlName="locationId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.id}}</option>
+                        <option [ngValue]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="wmteApp.department.parent" for="field_parent">Parent</label>
                     <select class="form-control" id="field_parent" name="parent" formControlName="parentId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="departmentOption.id" *ngFor="let departmentOption of departments; trackBy: trackDepartmentById">{{departmentOption.id}}</option>
+                        <option [ngValue]="departmentOption.id" *ngFor="let departmentOption of departments; trackBy: trackDepartmentById">{{departmentOption.name}}</option>
                     </select>
                 </div>
             </div>

@@ -41,7 +41,6 @@ export class EmployeeUpdatePage {
   noteInput = element(by.id('field_note'));
   userIdInput = element(by.id('field_userId'));
   managerSelect = element(by.id('field_manager'));
-  departmenSelect = element(by.id('field_departmen'));
 
   async getPageTitle() {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -190,25 +189,6 @@ export class EmployeeUpdatePage {
 
   async getManagerSelectedOption() {
     return await this.managerSelect.element(by.css('option:checked')).getText();
-  }
-
-  async departmenSelectLastOption(timeout?: number) {
-    await this.departmenSelect
-      .all(by.tagName('option'))
-      .last()
-      .click();
-  }
-
-  async departmenSelectOption(option) {
-    await this.departmenSelect.sendKeys(option);
-  }
-
-  getDepartmenSelect(): ElementFinder {
-    return this.departmenSelect;
-  }
-
-  async getDepartmenSelectedOption() {
-    return await this.departmenSelect.element(by.css('option:checked')).getText();
   }
 
   async save(timeout?: number) {

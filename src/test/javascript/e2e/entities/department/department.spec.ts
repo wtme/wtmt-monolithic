@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { browser, ExpectedConditions as ec, protractor, promise } from 'protractor';
+import { browser, ExpectedConditions as ec, promise } from 'protractor';
 import { NavBarPage, SignInPage } from '../../page-objects/jhi-page-objects';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -45,8 +45,6 @@ describe('Department e2e test', () => {
       departmentUpdatePage.setNameInput('name'),
       departmentUpdatePage.setDescriptionInput('description'),
       departmentUpdatePage.setNotesInput('notes'),
-      departmentUpdatePage.setStartDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
-      departmentUpdatePage.setEndDateInput('01/01/2001' + protractor.Key.TAB + '02:30AM'),
       departmentUpdatePage.locationSelectLastOption(),
       departmentUpdatePage.parentSelectLastOption()
     ]);
@@ -62,14 +60,6 @@ describe('Department e2e test', () => {
       expect(await departmentUpdatePage.getDisabledInput().isSelected(), 'Expected disabled to be selected').to.be.true;
     }
     expect(await departmentUpdatePage.getNotesInput()).to.eq('notes', 'Expected Notes value to be equals to notes');
-    expect(await departmentUpdatePage.getStartDateInput()).to.contain(
-      '2001-01-01T02:30',
-      'Expected startDate value to be equals to 2000-12-31'
-    );
-    expect(await departmentUpdatePage.getEndDateInput()).to.contain(
-      '2001-01-01T02:30',
-      'Expected endDate value to be equals to 2000-12-31'
-    );
     await departmentUpdatePage.save();
     expect(await departmentUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;
 

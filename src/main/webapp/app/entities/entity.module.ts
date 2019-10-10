@@ -47,6 +47,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'overtime-history',
         loadChildren: () => import('./overtime-history/overtime-history.module').then(m => m.WmteOvertimeHistoryModule)
+      },
+      {
+        path: 'employee-department',
+        loadChildren: () => import('./employee-department/employee-department.module').then(m => m.WmteEmployeeDepartmentModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

@@ -20,7 +20,7 @@
             <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="approverName"><span jhiTranslate="wmteApp.overtimeApproval.approverName">Approver Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="approverEmail"><span jhiTranslate="wmteApp.overtimeApproval.approverEmail">Approver Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="overtimeId"><span jhiTranslate="wmteApp.overtimeApproval.overtime">Overtime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="overtimeName"><span jhiTranslate="wmteApp.overtimeApproval.overtime">Overtime</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -31,7 +31,7 @@
                 <td>{{overtimeApproval.approverEmail}}</td>
                 <td>
                     <div *ngIf="overtimeApproval.overtimeId">
-                        <a [routerLink]="['/overtime', overtimeApproval.overtimeId , 'view' ]" >{{overtimeApproval.overtimeId}}</a>
+                        <a [routerLink]="['/overtime', overtimeApproval.overtimeId , 'view' ]" >{{overtimeApproval.overtimeName}}</a>
                     </div>
                 </td>
                 <td class="text-right">
