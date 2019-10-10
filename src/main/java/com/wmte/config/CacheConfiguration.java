@@ -42,6 +42,22 @@ public class CacheConfiguration {
             createCache(cm, com.wmte.domain.User.class.getName());
             createCache(cm, com.wmte.domain.Authority.class.getName());
             createCache(cm, com.wmte.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.wmte.domain.Location.class.getName());
+            createCache(cm, com.wmte.domain.Department.class.getName());
+            createCache(cm, com.wmte.domain.Department.class.getName() + ".employees");
+            createCache(cm, com.wmte.domain.DepartmentApprove.class.getName());
+            createCache(cm, com.wmte.domain.ExpenseApprovers.class.getName());
+            createCache(cm, com.wmte.domain.Employee.class.getName());
+            createCache(cm, com.wmte.domain.Employee.class.getName() + ".employeeHasRoles");
+            createCache(cm, com.wmte.domain.EmployeeHasRole.class.getName());
+            createCache(cm, com.wmte.domain.DepartmentRole.class.getName());
+            createCache(cm, com.wmte.domain.OvertimeApproval.class.getName());
+            createCache(cm, com.wmte.domain.Overtime.class.getName());
+            createCache(cm, com.wmte.domain.Overtime.class.getName() + ".overtimeApprovals");
+            createCache(cm, com.wmte.domain.Overtime.class.getName() + ".overtimeHistories");
+            createCache(cm, com.wmte.domain.Overtime.class.getName() + ".overtimeComments");
+            createCache(cm, com.wmte.domain.OvertimeComment.class.getName());
+            createCache(cm, com.wmte.domain.OvertimeHistory.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,40 @@
+{
+  "wmteApp": {
+    "overtime": {
+      "home": {
+        "title": "Overtimes",
+        "createLabel": "Create a new Overtime",
+        "createOrEditLabel": "Create or edit a Overtime",
+        "notFound": "No Overtimes found"
+      },
+      "created": "A new Overtime is created with identifier {{ param }}",
+      "updated": "A Overtime is updated with identifier {{ param }}",
+      "deleted": "A Overtime is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Overtime {{ id }}?"
+      },
+      "detail": {
+        "title": "Overtime"
+      },
+      "code": "Code",
+      "name": "Name",
+      "status": "Status",
+      "details": "Details",
+      "fromDate": "From Date",
+      "toDate": "To Date",
+      "createdDate": "Created Date",
+      "overtimeInHours": "Overtime In Hours",
+      "totalBillableHours": "Total Billable Hours",
+      "totalCostingAmount": "Total Costing Amount",
+      "note": "Note",
+      "location": "Location",
+      "employeeName": "Employee Name",
+      "employeeEmail": "Employee Email",
+      "departmentName": "Department Name",
+      "departmentCode": "Department Code",
+      "overtimeApproval": "Overtime Approval",
+      "overtimeHistory": "Overtime History",
+      "overtimeComment": "Overtime Comment"
+    }
+  }
+}

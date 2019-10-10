@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employee">
+            <h2><span jhiTranslate="wmteApp.employee.detail.title">Employee</span> {{employee.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wmteApp.employee.code">Code</span></dt>
+                <dd>
+                    <span>{{employee.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.fullname">Fullname</span></dt>
+                <dd>
+                    <span>{{employee.fullname}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.login">Login</span></dt>
+                <dd>
+                    <span>{{employee.login}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.email">Email</span></dt>
+                <dd>
+                    <span>{{employee.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.personalEmail">Personal Email</span></dt>
+                <dd>
+                    <span>{{employee.personalEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{employee.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.mobile">Mobile</span></dt>
+                <dd>
+                    <span>{{employee.mobile}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.dateOfJoining">Date Of Joining</span></dt>
+                <dd>
+                    <span>{{employee.dateOfJoining}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.gender">Gender</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'wmteApp.Gender.' + employee.gender}}">{{employee.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'wmteApp.EmployeeStatus.' + employee.status}}">{{employee.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.employeeNumber">Employee Number</span></dt>
+                <dd>
+                    <span>{{employee.employeeNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{employee.dateOfBirth}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.note">Note</span></dt>
+                <dd>
+                    <span>{{employee.note}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.userId">User Id</span></dt>
+                <dd>
+                    <span>{{employee.userId}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.manager">Manager</span></dt>
+                <dd>
+                    <div *ngIf="employee.managerId">
+                        <a [routerLink]="['/employee', employee.managerId, 'view']">{{employee.managerId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.employee.departmen">Departmen</span></dt>
+                <dd>
+                    <div *ngIf="employee.departmenId">
+                        <a [routerLink]="['/department', employee.departmenId, 'view']">{{employee.departmenName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee', employee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

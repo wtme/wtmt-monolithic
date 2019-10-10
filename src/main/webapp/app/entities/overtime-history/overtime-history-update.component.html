@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-overtime-history-heading" jhiTranslate="wmteApp.overtimeHistory.home.createOrEditLabel">Create or edit a Overtime History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtimeHistory.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtimeHistory.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="OPEN">{{'wmteApp.OvertimeStatus.OPEN' | translate}}</option>
+                        <option value="APPROVED">{{'wmteApp.OvertimeStatus.APPROVED' | translate}}</option>
+                        <option value="COMPLETED">{{'wmteApp.OvertimeStatus.COMPLETED' | translate}}</option>
+                        <option value="REJECTED">{{'wmteApp.OvertimeStatus.REJECTED' | translate}}</option>
+                        <option value="CANCELLED">{{'wmteApp.OvertimeStatus.CANCELLED' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtimeHistory.changeType" for="field_changeType">Change Type</label>
+                    <input type="text" class="form-control" name="changeType" id="field_changeType"
+                           formControlName="changeType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtimeHistory.who" for="field_who">Who</label>
+                    <input type="text" class="form-control" name="who" id="field_who"
+                           formControlName="who"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtimeHistory.overtime" for="field_overtime">Overtime</label>
+                    <select class="form-control" id="field_overtime" name="overtime" formControlName="overtimeId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="overtimeOption.id" *ngFor="let overtimeOption of overtimes; trackBy: trackOvertimeById">{{overtimeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

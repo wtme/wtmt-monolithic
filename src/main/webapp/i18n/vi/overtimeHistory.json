@@ -1,0 +1,26 @@
+{
+  "wmteApp": {
+    "overtimeHistory": {
+      "home": {
+        "title": "Overtime Histories",
+        "createLabel": "Thêm mới một Overtime History",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Overtime History",
+        "notFound": "No Overtime Histories found"
+      },
+      "created": "Một Overtime History mới được tạo với định danh {{ param }}",
+      "updated": "Một Overtime History cập nhật với định danh {{ param }}",
+      "deleted": "Một Overtime History đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Overtime History {{ id }}?"
+      },
+      "detail": {
+        "title": "Overtime History"
+      },
+      "date": "Date",
+      "status": "Status",
+      "changeType": "Change Type",
+      "who": "Who",
+      "overtime": "Overtime"
+    }
+  }
+}

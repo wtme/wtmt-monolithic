@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="wmteApp.overtime.home.title">Overtimes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-overtime" [routerLink]="['/overtime/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="wmteApp.overtime.home.createLabel">
+            Create a new Overtime
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="overtimes?.length === 0">
+        <span jhiTranslate="wmteApp.overtime.home.notFound">No overtimes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="overtimes?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="code"><span jhiTranslate="wmteApp.overtime.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="wmteApp.overtime.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="wmteApp.overtime.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="details"><span jhiTranslate="wmteApp.overtime.details">Details</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fromDate"><span jhiTranslate="wmteApp.overtime.fromDate">From Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="toDate"><span jhiTranslate="wmteApp.overtime.toDate">To Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="createdDate"><span jhiTranslate="wmteApp.overtime.createdDate">Created Date</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="overtimeInHours"><span jhiTranslate="wmteApp.overtime.overtimeInHours">Overtime In Hours</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalBillableHours"><span jhiTranslate="wmteApp.overtime.totalBillableHours">Total Billable Hours</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalCostingAmount"><span jhiTranslate="wmteApp.overtime.totalCostingAmount">Total Costing Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="note"><span jhiTranslate="wmteApp.overtime.note">Note</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="location"><span jhiTranslate="wmteApp.overtime.location">Location</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="employeeName"><span jhiTranslate="wmteApp.overtime.employeeName">Employee Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="employeeEmail"><span jhiTranslate="wmteApp.overtime.employeeEmail">Employee Email</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="departmentName"><span jhiTranslate="wmteApp.overtime.departmentName">Department Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="departmentCode"><span jhiTranslate="wmteApp.overtime.departmentCode">Department Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let overtime of overtimes ;trackBy: trackId">
+                <td><a [routerLink]="['/overtime', overtime.id, 'view' ]">{{overtime.id}}</a></td>
+                <td>{{overtime.code}}</td>
+                <td>{{overtime.name}}</td>
+                <td jhiTranslate="{{'wmteApp.OvertimeStatus.' + overtime.status}}">{{overtime.status}}</td>
+                <td>{{overtime.details}}</td>
+                <td>{{overtime.fromDate | date:'medium'}}</td>
+                <td>{{overtime.toDate | date:'medium'}}</td>
+                <td>{{overtime.createdDate | date:'medium'}}</td>
+                <td>{{overtime.overtimeInHours}}</td>
+                <td>{{overtime.totalBillableHours}}</td>
+                <td>{{overtime.totalCostingAmount}}</td>
+                <td>{{overtime.note}}</td>
+                <td>{{overtime.location}}</td>
+                <td>{{overtime.employeeName}}</td>
+                <td>{{overtime.employeeEmail}}</td>
+                <td>{{overtime.departmentName}}</td>
+                <td>{{overtime.departmentCode}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/overtime', overtime.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/overtime', overtime.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/overtime', { outlets: { popup: overtime.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="overtimes?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

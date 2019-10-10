@@ -1,0 +1,39 @@
+{
+    "name": "OvertimeComment",
+    "fields": [
+        {
+            "fieldName": "comment",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "employeeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeEmail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "overtime",
+            "otherEntityRelationshipName": "overtimeComment",
+            "relationshipName": "overtime",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191010115730",
+    "entityTableName": "overtime_comment",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,36 @@
+{
+    "name": "ExpenseApprovers",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "expenseApprovers",
+            "relationshipName": "employee",
+            "otherEntityField": "fullname"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "department",
+            "otherEntityRelationshipName": "expenseApprovers",
+            "relationshipName": "department",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "departmentRole",
+            "otherEntityRelationshipName": "expenseApprovers",
+            "relationshipName": "departmentRole",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191010115724",
+    "entityTableName": "expense_approvers",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

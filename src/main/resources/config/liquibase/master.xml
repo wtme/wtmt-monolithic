@@ -14,6 +14,25 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115721_added_entity_Location.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115722_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115723_added_entity_DepartmentApprove.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115724_added_entity_ExpenseApprovers.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115725_added_entity_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115726_added_entity_EmployeeHasRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115727_added_entity_DepartmentRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115728_added_entity_OvertimeApproval.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115729_added_entity_Overtime.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115730_added_entity_OvertimeComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115731_added_entity_OvertimeHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20191010115722_added_entity_constraints_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115723_added_entity_constraints_DepartmentApprove.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115724_added_entity_constraints_ExpenseApprovers.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115725_added_entity_constraints_Employee.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115726_added_entity_constraints_EmployeeHasRole.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115728_added_entity_constraints_OvertimeApproval.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115730_added_entity_constraints_OvertimeComment.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191010115731_added_entity_constraints_OvertimeHistory.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

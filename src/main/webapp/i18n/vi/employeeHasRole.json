@@ -1,0 +1,23 @@
+{
+  "wmteApp": {
+    "employeeHasRole": {
+      "home": {
+        "title": "Employee Has Roles",
+        "createLabel": "Thêm mới một Employee Has Role",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Employee Has Role",
+        "notFound": "No Employee Has Roles found"
+      },
+      "created": "Một Employee Has Role mới được tạo với định danh {{ param }}",
+      "updated": "Một Employee Has Role cập nhật với định danh {{ param }}",
+      "deleted": "Một Employee Has Role đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Employee Has Role {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Has Role"
+      },
+      "name": "Name",
+      "employee": "Employee"
+    }
+  }
+}

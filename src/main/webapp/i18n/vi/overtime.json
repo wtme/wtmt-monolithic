@@ -1,0 +1,40 @@
+{
+  "wmteApp": {
+    "overtime": {
+      "home": {
+        "title": "Overtimes",
+        "createLabel": "Thêm mới một Overtime",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Overtime",
+        "notFound": "No Overtimes found"
+      },
+      "created": "Một Overtime mới được tạo với định danh {{ param }}",
+      "updated": "Một Overtime cập nhật với định danh {{ param }}",
+      "deleted": "Một Overtime đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Overtime {{ id }}?"
+      },
+      "detail": {
+        "title": "Overtime"
+      },
+      "code": "Code",
+      "name": "Name",
+      "status": "Status",
+      "details": "Details",
+      "fromDate": "From Date",
+      "toDate": "To Date",
+      "createdDate": "Created Date",
+      "overtimeInHours": "Overtime In Hours",
+      "totalBillableHours": "Total Billable Hours",
+      "totalCostingAmount": "Total Costing Amount",
+      "note": "Note",
+      "location": "Location",
+      "employeeName": "Employee Name",
+      "employeeEmail": "Employee Email",
+      "departmentName": "Department Name",
+      "departmentCode": "Department Code",
+      "overtimeApproval": "Overtime Approval",
+      "overtimeHistory": "Overtime History",
+      "overtimeComment": "Overtime Comment"
+    }
+  }
+}

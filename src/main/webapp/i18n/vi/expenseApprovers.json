@@ -1,0 +1,24 @@
+{
+  "wmteApp": {
+    "expenseApprovers": {
+      "home": {
+        "title": "Expense Approvers",
+        "createLabel": "Thêm mới một Expense Approvers",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Expense Approvers",
+        "notFound": "No Expense Approvers found"
+      },
+      "created": "Một Expense Approvers mới được tạo với định danh {{ param }}",
+      "updated": "Một Expense Approvers cập nhật với định danh {{ param }}",
+      "deleted": "Một Expense Approvers đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Expense Approvers {{ id }}?"
+      },
+      "detail": {
+        "title": "Expense Approvers"
+      },
+      "employee": "Employee",
+      "department": "Department",
+      "departmentRole": "Department Role"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="overtime">
+            <h2><span jhiTranslate="wmteApp.overtime.detail.title">Overtime</span> {{overtime.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="wmteApp.overtime.code">Code</span></dt>
+                <dd>
+                    <span>{{overtime.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.name">Name</span></dt>
+                <dd>
+                    <span>{{overtime.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'wmteApp.OvertimeStatus.' + overtime.status}}">{{overtime.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.details">Details</span></dt>
+                <dd>
+                    <span>{{overtime.details}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.fromDate">From Date</span></dt>
+                <dd>
+                    <span>{{overtime.fromDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.toDate">To Date</span></dt>
+                <dd>
+                    <span>{{overtime.toDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{overtime.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.overtimeInHours">Overtime In Hours</span></dt>
+                <dd>
+                    <span>{{overtime.overtimeInHours}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.totalBillableHours">Total Billable Hours</span></dt>
+                <dd>
+                    <span>{{overtime.totalBillableHours}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.totalCostingAmount">Total Costing Amount</span></dt>
+                <dd>
+                    <span>{{overtime.totalCostingAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.note">Note</span></dt>
+                <dd>
+                    <span>{{overtime.note}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.location">Location</span></dt>
+                <dd>
+                    <span>{{overtime.location}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.employeeName">Employee Name</span></dt>
+                <dd>
+                    <span>{{overtime.employeeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.employeeEmail">Employee Email</span></dt>
+                <dd>
+                    <span>{{overtime.employeeEmail}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.departmentName">Department Name</span></dt>
+                <dd>
+                    <span>{{overtime.departmentName}}</span>
+                </dd>
+                <dt><span jhiTranslate="wmteApp.overtime.departmentCode">Department Code</span></dt>
+                <dd>
+                    <span>{{overtime.departmentCode}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/overtime', overtime.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

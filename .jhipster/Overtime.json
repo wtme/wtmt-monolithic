@@ -1,0 +1,107 @@
+{
+    "name": "Overtime",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OvertimeStatus",
+            "fieldValues": "OPEN,APPROVED,COMPLETED,REJECTED,CANCELLED",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "details",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fromDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "toDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "overtimeInHours",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalBillableHours",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalCostingAmount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "note",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "employeeEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "departmentCode",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "overtimeApproval",
+            "otherEntityRelationshipName": "overtime",
+            "relationshipName": "overtimeApproval"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "overtimeHistory",
+            "otherEntityRelationshipName": "overtime",
+            "relationshipName": "overtimeHistory"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "overtimeComment",
+            "otherEntityRelationshipName": "overtime",
+            "relationshipName": "overtimeComment"
+        }
+    ],
+    "changelogDate": "20191010115729",
+    "entityTableName": "overtime",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

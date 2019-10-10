@@ -1,0 +1,36 @@
+{
+    "name": "DepartmentApprove",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "employee",
+            "otherEntityRelationshipName": "departmentApprove",
+            "relationshipName": "employee",
+            "otherEntityField": "fullname"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "department",
+            "otherEntityRelationshipName": "departmentApprove",
+            "relationshipName": "department",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "departmentRole",
+            "otherEntityRelationshipName": "departmentApprove",
+            "relationshipName": "departmentRole",
+            "otherEntityField": "name"
+        }
+    ],
+    "changelogDate": "20191010115723",
+    "entityTableName": "department_approve",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

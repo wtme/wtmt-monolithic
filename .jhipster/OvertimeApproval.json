@@ -1,0 +1,31 @@
+{
+    "name": "OvertimeApproval",
+    "fields": [
+        {
+            "fieldName": "approverName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "approverEmail",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "overtime",
+            "otherEntityRelationshipName": "overtimeApproval",
+            "relationshipName": "overtime",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191010115728",
+    "entityTableName": "overtime_approval",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

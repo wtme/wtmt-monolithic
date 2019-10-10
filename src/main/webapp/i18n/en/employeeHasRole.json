@@ -1,0 +1,23 @@
+{
+  "wmteApp": {
+    "employeeHasRole": {
+      "home": {
+        "title": "Employee Has Roles",
+        "createLabel": "Create a new Employee Has Role",
+        "createOrEditLabel": "Create or edit a Employee Has Role",
+        "notFound": "No Employee Has Roles found"
+      },
+      "created": "A new Employee Has Role is created with identifier {{ param }}",
+      "updated": "A Employee Has Role is updated with identifier {{ param }}",
+      "deleted": "A Employee Has Role is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Employee Has Role {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee Has Role"
+      },
+      "name": "Name",
+      "employee": "Employee"
+    }
+  }
+}

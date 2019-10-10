@@ -1,0 +1,24 @@
+{
+  "wmteApp": {
+    "departmentApprove": {
+      "home": {
+        "title": "Department Approves",
+        "createLabel": "Create a new Department Approve",
+        "createOrEditLabel": "Create or edit a Department Approve",
+        "notFound": "No Department Approves found"
+      },
+      "created": "A new Department Approve is created with identifier {{ param }}",
+      "updated": "A Department Approve is updated with identifier {{ param }}",
+      "deleted": "A Department Approve is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Department Approve {{ id }}?"
+      },
+      "detail": {
+        "title": "Department Approve"
+      },
+      "employee": "Employee",
+      "department": "Department",
+      "departmentRole": "Department Role"
+    }
+  }
+}

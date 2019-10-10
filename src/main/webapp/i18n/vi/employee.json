@@ -1,0 +1,38 @@
+{
+  "wmteApp": {
+    "employee": {
+      "home": {
+        "title": "Employees",
+        "createLabel": "Thêm mới một Employee",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Employee",
+        "notFound": "No Employees found"
+      },
+      "created": "Một Employee mới được tạo với định danh {{ param }}",
+      "updated": "Một Employee cập nhật với định danh {{ param }}",
+      "deleted": "Một Employee đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Employee {{ id }}?"
+      },
+      "detail": {
+        "title": "Employee"
+      },
+      "code": "Code",
+      "fullname": "Fullname",
+      "login": "Login",
+      "email": "Email",
+      "personalEmail": "Personal Email",
+      "phoneNumber": "Phone Number",
+      "mobile": "Mobile",
+      "dateOfJoining": "Date Of Joining",
+      "gender": "Gender",
+      "status": "Status",
+      "employeeNumber": "Employee Number",
+      "dateOfBirth": "Date Of Birth",
+      "note": "Note",
+      "userId": "User Id",
+      "manager": "Manager",
+      "departmen": "Departmen",
+      "employeeHasRole": "Employee Has Role"
+    }
+  }
+}

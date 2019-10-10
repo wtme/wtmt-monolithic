@@ -1,0 +1,128 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-overtime-heading" jhiTranslate="wmteApp.overtime.home.createOrEditLabel">Create or edit a Overtime</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                    <div *ngIf="editForm.get('code').invalid && (editForm.get('code').dirty || editForm.get('code').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('code').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('code').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="OPEN">{{'wmteApp.OvertimeStatus.OPEN' | translate}}</option>
+                        <option value="APPROVED">{{'wmteApp.OvertimeStatus.APPROVED' | translate}}</option>
+                        <option value="COMPLETED">{{'wmteApp.OvertimeStatus.COMPLETED' | translate}}</option>
+                        <option value="REJECTED">{{'wmteApp.OvertimeStatus.REJECTED' | translate}}</option>
+                        <option value="CANCELLED">{{'wmteApp.OvertimeStatus.CANCELLED' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('status').invalid && (editForm.get('status').dirty || editForm.get('status').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('status').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.details" for="field_details">Details</label>
+                    <input type="text" class="form-control" name="details" id="field_details"
+                           formControlName="details"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.fromDate" for="field_fromDate">From Date</label>
+                    <div class="d-flex">
+                        <input id="field_fromDate" type="datetime-local" class="form-control" name="fromDate" formControlName="fromDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.toDate" for="field_toDate">To Date</label>
+                    <div class="d-flex">
+                        <input id="field_toDate" type="datetime-local" class="form-control" name="toDate" formControlName="toDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.overtimeInHours" for="field_overtimeInHours">Overtime In Hours</label>
+                    <input type="number" class="form-control" name="overtimeInHours" id="field_overtimeInHours"
+                           formControlName="overtimeInHours"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.totalBillableHours" for="field_totalBillableHours">Total Billable Hours</label>
+                    <input type="number" class="form-control" name="totalBillableHours" id="field_totalBillableHours"
+                           formControlName="totalBillableHours"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.totalCostingAmount" for="field_totalCostingAmount">Total Costing Amount</label>
+                    <input type="number" class="form-control" name="totalCostingAmount" id="field_totalCostingAmount"
+                           formControlName="totalCostingAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.note" for="field_note">Note</label>
+                    <input type="text" class="form-control" name="note" id="field_note"
+                           formControlName="note"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.location" for="field_location">Location</label>
+                    <input type="text" class="form-control" name="location" id="field_location"
+                           formControlName="location"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.employeeName" for="field_employeeName">Employee Name</label>
+                    <input type="text" class="form-control" name="employeeName" id="field_employeeName"
+                           formControlName="employeeName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.employeeEmail" for="field_employeeEmail">Employee Email</label>
+                    <input type="text" class="form-control" name="employeeEmail" id="field_employeeEmail"
+                           formControlName="employeeEmail"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.departmentName" for="field_departmentName">Department Name</label>
+                    <input type="text" class="form-control" name="departmentName" id="field_departmentName"
+                           formControlName="departmentName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="wmteApp.overtime.departmentCode" for="field_departmentCode">Department Code</label>
+                    <input type="text" class="form-control" name="departmentCode" id="field_departmentCode"
+                           formControlName="departmentCode"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

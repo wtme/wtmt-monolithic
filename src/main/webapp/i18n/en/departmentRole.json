@@ -1,0 +1,24 @@
+{
+  "wmteApp": {
+    "departmentRole": {
+      "home": {
+        "title": "Department Roles",
+        "createLabel": "Create a new Department Role",
+        "createOrEditLabel": "Create or edit a Department Role",
+        "notFound": "No Department Roles found"
+      },
+      "created": "A new Department Role is created with identifier {{ param }}",
+      "updated": "A Department Role is updated with identifier {{ param }}",
+      "deleted": "A Department Role is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Department Role {{ id }}?"
+      },
+      "detail": {
+        "title": "Department Role"
+      },
+      "code": "Code",
+      "name": "Name",
+      "description": "Description"
+    }
+  }
+}

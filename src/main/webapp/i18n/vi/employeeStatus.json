@@ -1,0 +1,9 @@
+{
+  "wmteApp": {
+    "EmployeeStatus": {
+      "null": "",
+      "ACTIVE": "ACTIVE",
+      "LEFT": "LEFT"
+    }
+  }
+}

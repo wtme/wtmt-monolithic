@@ -1,0 +1,26 @@
+{
+  "wmteApp": {
+    "overtimeComment": {
+      "home": {
+        "title": "Overtime Comments",
+        "createLabel": "Thêm mới một Overtime Comment",
+        "createOrEditLabel": "Thêm mới hoặc cập nhật Overtime Comment",
+        "notFound": "No Overtime Comments found"
+      },
+      "created": "Một Overtime Comment mới được tạo với định danh {{ param }}",
+      "updated": "Một Overtime Comment cập nhật với định danh {{ param }}",
+      "deleted": "Một Overtime Comment đã xóa với định danh {{ param }}",
+      "delete": {
+        "question": "Bạn có chắc là muốn xóa Overtime Comment {{ id }}?"
+      },
+      "detail": {
+        "title": "Overtime Comment"
+      },
+      "comment": "Comment",
+      "createdDate": "Created Date",
+      "employeeName": "Employee Name",
+      "employeeEmail": "Employee Email",
+      "overtime": "Overtime"
+    }
+  }
+}

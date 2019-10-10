@@ -1,0 +1,40 @@
+{
+    "name": "OvertimeHistory",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OvertimeStatus",
+            "fieldValues": "OPEN,APPROVED,COMPLETED,REJECTED,CANCELLED"
+        },
+        {
+            "fieldName": "changeType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "who",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "overtime",
+            "otherEntityRelationshipName": "overtimeHistory",
+            "relationshipName": "overtime",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191010115731",
+    "entityTableName": "overtime_history",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
